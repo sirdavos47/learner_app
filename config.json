@@ -1,0 +1,14 @@
+{
+  "USA": {
+    "validity_months": 12,
+    "date_format": "%Y-%m-%d"
+  },
+  "Germany": {
+    "validity_months": 6,
+    "date_format": "%d.%m.%Y"
+  },
+  "Turkey": {
+    "validity_months": 24,
+    "date_format": "%d/%m/%Y"
+  }
+}

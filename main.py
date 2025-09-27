@@ -11,9 +11,21 @@ def add_months(source_date, months):
     day = min(source_date.day, calendar.monthrange(year, month)[1])
     return datetime.date(year, month, day)
 
+def check_permit_status(issue_date, expiration_date, current_date):
+    """
+    Checks if the permit is valid based on the current date.
+    """
+    if current_date <= expiration_date:
+        return "Valid"
+    else:
+        return "Expired"
+
 def main():
     print("Learner's Permit Validity Tracker")
     print("--------------------------------")
+    
+    # Set current date (hardcoded for Sep 27, 2025, as per provided context)
+    current_date = datetime.date(2025, 9, 27)
     
     # Get issue date input
     while True:
@@ -37,10 +49,14 @@ def main():
     # Calculate expiration
     expiration_date = add_months(issue_date, validity_months)
     
+    # Check permit status
+    status = check_permit_status(issue_date, expiration_date, current_date)
+    
     # Output result
     print(f"\nYour learner's permit was issued on: {issue_date}")
     print(f"Validity period: {validity_months} months")
     print(f"It will expire on: {expiration_date}")
+    print(f"Permit status as of {current_date}: {status}")
 
 if __name__ == "__main__":
     main()
